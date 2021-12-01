@@ -20,12 +20,8 @@ public class Day01Part2 {
                 .filter(StringUtils::isNotBlank)
                 .map(Integer::parseInt)
                 .map(currentValue -> {
-                    var isIncreased = false;
-                    if (previousValue1.get() > 0 && previousValue2.get() > 0 && previousValue3.get() > 0) {
-                        var a = previousValue1.get() + previousValue2.get() + previousValue3.get();
-                        var b = previousValue2.get() + previousValue3.get() + currentValue;
-                        isIncreased = b > a;
-                    }
+                    var isIncreased = previousValue1.get() > 0 && previousValue2.get() > 0 && previousValue3.get() > 0
+                            && currentValue > previousValue1.get(); // we only need to compare D > A, thx @ybadache;
                     previousValue1.set(previousValue2.get());
                     previousValue2.set(previousValue3.get());
                     previousValue3.set(currentValue);
