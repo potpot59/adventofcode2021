@@ -16,8 +16,10 @@ public class Day01Part2Reactive {
                 .filter(StringUtils::isNotBlank)
                 .map(Integer::parseInt)
                 .buffer(4, 1)
-                .filter(previousAndCurrentValue -> previousAndCurrentValue.size() == 4) // we want only 4 values
-                .filter(previousAndCurrentValue -> previousAndCurrentValue.get(3) > previousAndCurrentValue.get(0)) // currentValue > previousValue
+                // we only continue if we have the 4 values
+                .filter(previousAndCurrentValue -> previousAndCurrentValue.size() == 4)
+                // to compare B + C + D > A + B + C, we just have to compare D > A, thx @ybadache
+                .filter(previousAndCurrentValue -> previousAndCurrentValue.get(3) > previousAndCurrentValue.get(0))
                 .count()
                 .block();
 

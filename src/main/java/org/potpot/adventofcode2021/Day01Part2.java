@@ -21,7 +21,7 @@ public class Day01Part2 {
                 .map(Integer::parseInt)
                 .map(currentValue -> {
                     var isIncreased = previousValue1.get() > 0 && previousValue2.get() > 0 && previousValue3.get() > 0
-                            && currentValue > previousValue1.get(); // we only need to compare D > A, thx @ybadache;
+                            && currentValue > previousValue1.get(); // to compare B + C + D > A + B + C, we just have to compare D > A, thx @ybadache
                     previousValue1.set(previousValue2.get());
                     previousValue2.set(previousValue3.get());
                     previousValue3.set(currentValue);
