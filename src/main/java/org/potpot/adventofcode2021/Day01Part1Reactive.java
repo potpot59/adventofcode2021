@@ -17,8 +17,7 @@ public class Day01Part1Reactive {
                 .map(Integer::parseInt)
                 .buffer(2, 1)
                 .filter(previousAndCurrentValue -> previousAndCurrentValue.size() == 2) // the last value will be alone, we want only 2 values
-                .map(previousAndCurrentValue -> previousAndCurrentValue.get(1) > previousAndCurrentValue.get(0)) // currentValue > previousValue
-                .filter(isIncreased -> isIncreased)
+                .filter(previousAndCurrentValue -> previousAndCurrentValue.get(1) > previousAndCurrentValue.get(0)) // currentValue > previousValue
                 .count()
                 .block();
 
