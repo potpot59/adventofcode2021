@@ -14,6 +14,14 @@
 	</properties>
 
 	<dependencies>
+		<!-- Reactive -->
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+			<version>3.4.12</version>
+		</dependency>
+
+		<!-- Tools -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -24,11 +32,27 @@
 			<artifactId>commons-text</artifactId>
 			<version>1.9</version>
 		</dependency>
+
+		<!-- Tests -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.21.0</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-core</artifactId>
+			<artifactId>reactor-test</artifactId>
 			<version>3.4.12</version>
+			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 </project>
