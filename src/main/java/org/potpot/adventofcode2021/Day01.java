@@ -1,13 +1,11 @@
 package org.potpot.adventofcode2021;
 
-import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
+import org.potpot.adventofcode2021.util.FileUtils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.stream.Stream;
 
 @UtilityClass
@@ -30,16 +28,11 @@ public class Day01 {
 
     public static void main(String[] args) {
         // part 1
-        var result = Day01.calculateIncreaseNumber(1, getInput());
+        var result = Day01.calculateIncreaseNumber(1, FileUtils.getStream("input/day01.txt"));
         System.out.println("part1 result = " + result.block());
 
         // part 2
-        result = Day01.calculateIncreaseNumber(3, getInput());
+        result = Day01.calculateIncreaseNumber(3, FileUtils.getStream("input/day01.txt"));
         System.out.println("part2 result = " + result.block());
-    }
-
-    @SneakyThrows
-    private static Stream<String> getInput() {
-        return Files.lines(Path.of("input/day01.txt"));
     }
 }
